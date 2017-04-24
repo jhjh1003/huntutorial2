@@ -10,6 +10,33 @@
   </head>
 
   <body>
+    <ul id="msgs"></ul>
+    <form>
+      <input id="m" /><button>send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+ <script>
+   
+  $(document).ready(function() {
+    var socket = io();
+    
+    $('form').submit(function(){
+      socket.emit('P', $('#m).val());
+      $('#m').val('');
+      return false;
+    });
+      
+    socket.on('P', function(msg) {
+      $('#msgs').append($('<li>').text(msg));
+    });
+  });
+    
+ </script>
+  </body>
+</html>
+    
+ 
     <table>
       <tr>
         <td style= "width:30%;">
