@@ -3,6 +3,4 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: huntutorial2
-  host: huntutorial2
   disk_quota: 1024M
